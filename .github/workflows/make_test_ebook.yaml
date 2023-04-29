@@ -39,3 +39,13 @@ jobs:
             pip install pytest
             pytest tests
 
+       - name: translate
+        run: |
+              python3 make_book.py --book_name "PPCA_-_Privacy-Preserving_Collision_Avoidance_for_Autonomous_Unmanned_Aerial_Vehicles.epub" --language zh-hans
+      - name: Rename and Upload ePub
+        if: env.OPENAI_API_KEY != null
+        uses: actions/upload-artifact@v2
+        with:
+          name: epub_output
+          path: "PPCA_-_Privacy-Preserving_Collision_Avoidance_for_Autonomous_Unmanned_Aerial_Vehicles_bilingual.epub"
+
