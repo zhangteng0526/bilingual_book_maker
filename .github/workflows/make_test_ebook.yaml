@@ -33,14 +33,12 @@ jobs:
       - name: Test install
         run: |
             pip install .
-
       - name: translate
         run: |
-              python3 make_book.py --book_name "Chapter_6.epub" --language zh-hans
-
+              python3 make_book.py --book_name "animal_farm.epub" --language zh-hans
       - name: Rename and Upload ePub
         if: env.OPENAI_API_KEY != null
         uses: actions/upload-artifact@v2
         with:
           name: epub_output
-          path: "Chapter_6_bilingual.epub"
+          path: "animal_farm_bilingual.epub"
