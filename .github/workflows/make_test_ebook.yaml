@@ -36,11 +36,11 @@ jobs:
 
       - name: translate
         run: |
-              python3 make_book.py --book_name "Unmanned Aircraft Systems.epub" --language zh-hans
+              python3 make_book.py --book_name "Chapter-4.epub" --language zh-hans
 
       - name: Rename and Upload ePub
         if: env.OPENAI_API_KEY != null
         uses: actions/upload-artifact@v2
         with:
           name: epub_output
-          path: "Unmanned Aircraft Systems_bilingual.epub"
+          path: "Chapter-4_bilingual.epub"
